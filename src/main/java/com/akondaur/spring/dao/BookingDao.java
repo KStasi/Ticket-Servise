@@ -1,7 +1,7 @@
-package main.java.com.akondaur.spring.dao;
+package com.akondaur.spring.dao;
 
-import main.java.com.akondaur.model.Booking;
-import main.java.com.akondaur.model.BookingMapper;
+import com.akondaur.model.Booking;
+import com.akondaur.model.BookingMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

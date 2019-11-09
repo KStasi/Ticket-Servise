@@ -1,7 +1,7 @@
-package main.java.com.akondaur.spring.dao;
+package com.akondaur.spring.dao;
 
-import main.java.com.akondaur.model.Performance;
-import main.java.com.akondaur.model.PerformanceMapper;
+import com.akondaur.model.Performance;
+import com.akondaur.model.PerformanceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

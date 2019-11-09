@@ -1,4 +1,4 @@
-package main.java.com.akondaur.model;
+package com.akondaur.model;
 
 public class Ticket {
 	private Long id;

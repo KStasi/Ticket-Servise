@@ -1,10 +1,10 @@
-package main.java.com.akondaur.spring.dao;
+package com.akondaur.spring.dao;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import main.java.com.akondaur.model.Client;
-import main.java.com.akondaur.model.ClientMapper;
+import com.akondaur.model.Client;
+import com.akondaur.model.ClientMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

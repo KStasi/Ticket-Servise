@@ -1,4 +1,4 @@
-package main.java.com.akondaur.model;
+package com.akondaur.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

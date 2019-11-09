@@ -1,4 +1,4 @@
-package main.java.com.akondaur.spring.dao;
+package com.akondaur.spring.dao;
 
 import java.util.List;
 

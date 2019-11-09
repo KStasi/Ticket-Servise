@@ -1,4 +1,4 @@
-package main.java.com.akondaur.spring.config;
+package com.akondaur.spring.config;
 
 import javax.sql.DataSource;
 
