@@ -32,7 +32,7 @@ public class Main {
 
         System.out.println("\nGet client with ID 2");
 
-        Client clientById = clientDAO.getById(11L);
+        Client clientById = clientDAO.getById(1L);
         System.out.println(clientById);
 
         System.out.println("\nCreating client: ");

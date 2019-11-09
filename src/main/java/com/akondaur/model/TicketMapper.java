@@ -12,6 +12,7 @@ public class TicketMapper implements RowMapper<Ticket> {
 			ticket.setId(resultSet.getLong("id"));
 			ticket.setPerformanceId(resultSet.getLong("performance_id"));
 			ticket.setSeat(resultSet.getInt("seat"));
+			ticket.setDate(resultSet.getInt("date"));
 		} catch (Exception e) {
 			System.out.println("Can't convert db row to object");
 		}

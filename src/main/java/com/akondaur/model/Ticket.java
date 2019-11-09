@@ -4,14 +4,16 @@ public class Ticket {
 	private Long id;
 	private Long performanceId;
 	private Integer seat;
+	private Integer date;
 
 	public Ticket() {
 	}
 
-	public Ticket(Long id, Long performanceId, Integer seat) {
+	public Ticket(Long id, Long performanceId, Integer seat, Integer date) {
 		this.id = id;
 		this.performanceId = performanceId;
 		this.seat = seat;
+		this.date = date;
 	}
 
 	public Long getId() {
@@ -36,6 +38,14 @@ public class Ticket {
 
 	public void setSeat(Integer seat) {
 		this.seat = seat;
+	}
+
+	public Integer getDate() {
+		return date;
+	}
+
+	public void setDate(Integer date) {
+		this.date = date;
 	}
 
 	@Override
