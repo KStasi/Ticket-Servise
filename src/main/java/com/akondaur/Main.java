@@ -11,6 +11,19 @@ public class Main {
 
         ClientDao clientDAO = context.getBean(ClientDao.class);
 
+        Client client0 = new Client(0L, 0.5, "Sergey", "Emets", "mail");
+        System.out.println(client0);
+        clientDAO.create(client0);
+
+        client0.setId(1L);
+        clientDAO.create(client0);
+        client0.setId(2L);
+        clientDAO.create(client0);
+        client0.setId(3L);
+        clientDAO.create(client0);
+        client0.setId(4L);
+        clientDAO.create(client0);
+        
         System.out.println("List of client is:");
 
         for (Client p : clientDAO.getAll()) {
@@ -19,7 +32,7 @@ public class Main {
 
         System.out.println("\nGet client with ID 2");
 
-        Client clientById = clientDAO.getById(2L);
+        Client clientById = clientDAO.getById(11L);
         System.out.println(clientById);
 
         System.out.println("\nCreating client: ");

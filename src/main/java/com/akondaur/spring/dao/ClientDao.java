@@ -15,9 +15,9 @@ public class ClientDao implements DbObjectDaoGeneric<Client>{
 
     private final String SQL_FIND = "select * from clients where id = ?";
     private final String SQL_DELETE = "delete from clients where id = ?";
-    private final String SQL_UPDATE = "update clients set discount = ?, firstName = ?, lastName = ?, email = ? where id = ?";
+    private final String SQL_UPDATE = "update clients set discount = ?, first_name = ?, last_name = ?, email = ? where id = ?";
     private final String SQL_GET_ALL = "select * from clients";
-    private final String SQL_INSERT = "insert into clients(id, discount, first_name, last_name, email) values(?,?,?,?,?)";
+    private final String SQL_INSERT = "insert into clients(discount, first_name, last_name, email) values(?,?,?,?)";
 
     @Autowired
     public ClientDao(DataSource dataSource) {
@@ -42,7 +42,7 @@ public class ClientDao implements DbObjectDaoGeneric<Client>{
     }
 
     public boolean create(Client client) {
-        return jdbcTemplate.update(SQL_INSERT, client.getId(), client.getDiscount(), client.getFirstName(), client.getLastName(),
+        return jdbcTemplate.update(SQL_INSERT, client.getDiscount(), client.getFirstName(), client.getLastName(),
                 client.getEmail()) > 0;
     }
 }

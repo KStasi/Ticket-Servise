@@ -17,7 +17,7 @@ public class BookingDao implements DbObjectDaoGeneric<Booking>{
     private final String SQL_DELETE = "delete from bookings where id = ?";
     private final String SQL_UPDATE = "update bookings set client_id = ?, ticket_id = ?, price = ? where id = ?";
     private final String SQL_GET_ALL = "select * from bookings";
-    private final String SQL_INSERT = "insert into bookings(id, client_id, ticket_id, price) values(?,?,?,?)";
+    private final String SQL_INSERT = "insert into bookings(client_id, ticket_id, price) values(?,?,?)";
 
     @Autowired
     public BookingDao(DataSource dataSource) {
@@ -42,6 +42,6 @@ public class BookingDao implements DbObjectDaoGeneric<Booking>{
     }
 
     public boolean create(Booking booking) {
-        return jdbcTemplate.update(SQL_INSERT, booking.getId(), booking.getClientId(), booking.getTicketId(), booking.getPrice()) > 0;
+        return jdbcTemplate.update(SQL_INSERT, booking.getClientId(), booking.getTicketId(), booking.getPrice()) > 0;
     }
 }

@@ -17,7 +17,7 @@ public class PerformanceDao implements DbObjectDaoGeneric<Performance>{
     private final String SQL_DELETE = "delete from performances where id = ?";
     private final String SQL_UPDATE = "update performances set name = ?, description = ?, type = ?, theatre = ? where id = ?";
     private final String SQL_GET_ALL = "select * from performances";
-    private final String SQL_INSERT = "insert into performances(id, name, description, type, theatre) values(?,?,?,?,?)";
+    private final String SQL_INSERT = "insert into performances(name, description, type, theatre) values(?,?,?,?)";
 
     @Autowired
     public PerformanceDao(DataSource dataSource) {
@@ -42,6 +42,6 @@ public class PerformanceDao implements DbObjectDaoGeneric<Performance>{
     }
 
     public boolean create(Performance performance) {
-        return jdbcTemplate.update(SQL_INSERT, performance.getId(), performance.getName() , performance.getDescription(), performance.getType(), performance.getTheatre()) > 0;
+        return jdbcTemplate.update(SQL_INSERT, performance.getName() , performance.getDescription(), performance.getType(), performance.getTheatre()) > 0;
     }
 }

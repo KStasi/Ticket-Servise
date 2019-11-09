@@ -17,7 +17,7 @@ public class TicketDao implements DbObjectDaoGeneric<Ticket>{
     private final String SQL_DELETE = "delete from tickets where id = ?";
     private final String SQL_UPDATE = "update tickets set performance_id = ?, seat = ? where id = ?";
     private final String SQL_GET_ALL = "select * from tickets";
-    private final String SQL_INSERT = "insert into tickets(id, performance_id, seat) values(?,?,?)";
+    private final String SQL_INSERT = "insert into tickets(performance_id, seat) values(?,?,?)";
 
     @Autowired
     public TicketDao(DataSource dataSource) {
@@ -42,6 +42,6 @@ public class TicketDao implements DbObjectDaoGeneric<Ticket>{
     }
 
     public boolean create(Ticket ticket) {
-        return jdbcTemplate.update(SQL_INSERT, ticket.getId(), ticket.getPerformanceId() , ticket.getSeat()) > 0;
+        return jdbcTemplate.update(SQL_INSERT, ticket.getPerformanceId() , ticket.getSeat()) > 0;
     }
 }
