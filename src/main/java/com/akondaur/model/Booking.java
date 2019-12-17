@@ -1,9 +1,21 @@
 package com.akondaur.model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "bookings")
 public class Booking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long id;
+
+    @Column (name = "client_id")
     private Long clientId;
+
+    @Column (name = "ticket_id")
     private Long ticketId;
+
+    @Column (name = "price")
     private Integer price;
 
     public Booking() {

@@ -1,6 +1,7 @@
 package com.akondaur.spring.config;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @ComponentScan("com.akondaur.spring")
@@ -31,5 +37,33 @@ public class SpringConfig {
         driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
         return driverManagerDataSource;
     }
-
+    
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        final LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource());
+        emf.setPackagesToScan(new String[] { "com.akondaur.spring" });
+    
+        final JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        emf.setJpaVendorAdapter(vendorAdapter);
+        emf.setJpaProperties(hibernateProperties());
+    
+        return emf;
+    }
+    
+    @Bean(name = "transactionManager")
+    public PlatformTransactionManager jpaTransactionManager() {
+        final JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
+    
+    private final Properties hibernateProperties() {
+        final Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        hibernateProperties.setProperty("hibernate.show_sql", "true");
+    
+        return hibernateProperties;
+    }
 }
