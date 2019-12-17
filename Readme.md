@@ -2,7 +2,7 @@
 
 Всегда удаляй target перед компиляцией. Особенно если меняешь плагины
 
-    rm -rf target/ && mvn package
+    rm -rf target/ ; mvn package
 
 ### Как запустить ###
 

@@ -1,4 +1,5 @@
 package com.akondaur.spring.service;
+import java.util.List;
 
 import com.akondaur.model.Client;
 import com.akondaur.spring.dao.ClientDAO;
@@ -12,6 +13,10 @@ public class ClientService {
 
     public void create(Client client) {
         clientDAO.create(client);
+    }
+
+    public List<Client> getAll() {
+        return clientDAO.getAll();
     }
 
     public Client getById(Long id) {

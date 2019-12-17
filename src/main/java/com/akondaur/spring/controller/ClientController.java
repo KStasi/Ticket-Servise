@@ -1,4 +1,5 @@
 package com.akondaur.spring.controller;
+import java.util.List;
 
 import com.akondaur.model.Client;
 import com.akondaur.spring.service.ClientService;
@@ -9,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 public class ClientController {
     @Autowired
     public ClientService clientService;
+
+    @GetMapping("/client")
+    public List<Client> getClientAll() {
+        return clientService.getAll();
+    }
 
     @PostMapping("/client")
     public Client createClient(@RequestBody
