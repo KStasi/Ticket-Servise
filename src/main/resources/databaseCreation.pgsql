@@ -1,30 +1,30 @@
 create table clients (
-id serial not null primary key,
-discount numeric not null,
-first_name varchar(20) not null,
-last_name varchar(20) not null,
-email varchar(30) not null
+    id serial not null primary key,
+    discount numeric not null,
+    first_name varchar(20) not null,
+    last_name varchar(20) not null,
+    email varchar(30) not null
 );
 
 create table performances (
-id serial not null primary key,
-name varchar(20) not null,
-description varchar(200) not null,
-type integer not null,
-theatre varchar(50) not null
+    id serial not null primary key,
+    name varchar(20) not null,
+    description varchar(200) not null,
+    type integer not null,
+    theatre varchar(50) not null
 );
 
 create table tickets (
-id serial not null primary key,
-performance_id integer not null,
-seat integer not null
+    id serial not null primary key,
+    performance_id integer not null,
+    seat integer not null
 );
 
 create table bookings (
-id serial not null primary key,
-client_id integer not null,
-ticket_id integer not null,
-price integer not null
+    id serial not null primary key,
+    client_id integer not null,
+    ticket_id integer not null,
+    price integer not null
 );
 
 alter table if exists tickets
